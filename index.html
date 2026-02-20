@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<title>Word Atlas</title>
-		<meta name="theme-color" content="#385D8C">
-		<meta name="description" content="Word Atlas game web site">
-		<meta name="robots" content="all"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
-	</head>
-	<body>
-		Hello World
-	</body>
+<html lang="en-US" class="home">
+<head>
+	<meta charset="UTF-8">
+	<title>Word Atlas</title>
+	<meta name="theme-color" content="#2d5a3d">
+	<meta name="description" content="Word Atlas — word puzzle game for the whole family. Fill the grid, discover words, play at your own pace.">
+	<meta name="robots" content="all">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	<!-- Google Noto (CDN) -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+	<!-- GSAP (CDN) -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="home">
+	<div class="bg-layer" aria-hidden="true"></div>
+
+	<div class="page">
+		<h1 class="title-main">Word Atlas</h1>
+		<p class="tagline">Word puzzle game for the whole family</p>
+
+		<div class="stores">
+			<div class="store-card" aria-label="Google Play — coming soon">
+				<div class="qr" aria-hidden="true">QR code</div>
+				<span class="coming-soon">Coming Soon</span>
+				<span class="label">Google Play</span>
+				<span class="hint">Android</span>
+			</div>
+			<div class="store-card" aria-label="App Store — coming soon">
+				<div class="qr" aria-hidden="true">QR code</div>
+				<span class="coming-soon">Coming Soon</span>
+				<span class="label">App Store</span>
+				<span class="hint">iOS</span>
+			</div>
+		</div>
+
+		<nav class="footer-links">
+			<a href="privacy.html">Privacy Policy</a>
+			<a href="terms.html">Terms &amp; Conditions</a>
+		</nav>
+	</div>
+
+	<script src="scripts/main.js" defer></script>
+</body>
 </html>

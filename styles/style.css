@@ -1,0 +1,118 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html.home {
+	height: 100%;
+	overflow: hidden;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Noto Sans', sans-serif;
+	background: linear-gradient(160deg, #1a3d2e 0%, #2d5a3d 35%, #3d7a52 70%, #2d5a3d 100%);
+	color: #f5f5e8;
+}
+
+body.home {
+	min-height: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+/* Background image placeholder — replace bg-placeholder.jpg with your own image (in project root) */
+.bg-layer {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: url('../bg-placeholder.jpg') center/cover no-repeat;
+	opacity: 0.35;
+}
+.bg-layer + * { position: relative; z-index: 1; }
+
+.page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(1rem, 4vw, 2rem);
+	padding: clamp(0.75rem, 3vw, 1.5rem);
+	width: 100%;
+	max-width: 480px;
+	text-align: center;
+}
+
+.page h1.title-main {
+	font-size: clamp(2rem, 8vw, 3rem);
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	margin: 0;
+	text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.page .tagline {
+	font-size: clamp(0.85rem, 3.5vw, 1rem);
+	opacity: 0.9;
+	margin: 0;
+}
+
+.stores {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: clamp(1.5rem, 5vw, 2.5rem);
+	justify-content: center;
+	align-items: stretch;
+}
+
+.store-card {
+	background: rgba(255,255,255,0.12);
+	backdrop-filter: blur(8px);
+	border-radius: 24px;
+	padding: clamp(1.5rem, 5vw, 2.5rem);
+	min-width: 280px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	color: inherit;
+	border: 1px solid rgba(255,255,255,0.2);
+	cursor: default;
+	pointer-events: none;
+}
+
+.store-card .qr {
+	width: 176px;
+	height: 176px;
+	background: rgba(0,0,0,0.25);
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.85rem;
+	color: rgba(255,255,255,0.6);
+}
+.store-card .coming-soon {
+	font-size: 0.9rem;
+	font-weight: 600;
+	opacity: 0.9;
+	letter-spacing: 0.05em;
+}
+.store-card .label { font-weight: 600; font-size: 1.25rem; }
+.store-card .hint { font-size: 0.95rem; opacity: 0.8; }
+
+.footer-links {
+	margin-top: auto;
+	padding-top: clamp(1rem, 4vw, 1.5rem);
+}
+.footer-links a {
+	color: rgba(255,255,255,0.85);
+	text-decoration: none;
+	font-size: 0.9rem;
+}
+.footer-links a:hover { text-decoration: underline; }
+.footer-links a + a { margin-left: 1rem; }
