@@ -1,5 +1,11 @@
 (function() {
 	var hasGSAP = typeof gsap !== 'undefined';
+	var bgVideo = document.querySelector('.bg-video');
+
+	// Ensure autoplay starts after browser restores page/session state.
+	if (bgVideo) {
+		bgVideo.play().catch(function() {});
+	}
 
 	// ----- Entrance: blocks fade in, title and labels fly in (GSAP) -----
 	var page = document.querySelector('.page');
