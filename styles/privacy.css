@@ -1,79 +1,167 @@
 *, *::before, *::after { box-sizing: border-box; }
 
+:root {
+	--ink-100: #f6f1e9;
+	--ink-88: rgba(246, 241, 233, 0.88);
+	--ink-76: rgba(246, 241, 233, 0.76);
+	--night-950: #080d1f;
+	--night-900: #0f1633;
+	--fire-400: #f6a24d;
+	--fire-300: #ffbe80;
+}
+
 body.privacy,
 body.terms {
 	margin: 0;
 	min-height: 100vh;
 	font-family: 'Noto Sans', sans-serif;
-	background: linear-gradient(160deg, #1a3d2e 0%, #2d5a3d 50%, #1a3d2e 100%);
-	color: #f5f5e8;
-	padding: clamp(1rem, 5vw, 2rem);
-	line-height: 1.6;
+	background: linear-gradient(175deg, var(--night-950) 0%, var(--night-900) 100%);
+	color: var(--ink-100);
+	line-height: 1.65;
+	position: relative;
+	padding: clamp(0.9rem, 3vw, 2rem) clamp(0.75rem, 3vw, 2rem) clamp(2.6rem, 9vh, 5rem);
+	overflow-x: hidden;
+}
+
+.bg-video {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center bottom;
+	z-index: 0;
+	filter: saturate(1.1) brightness(0.82);
+}
+
+.bg-layer {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	background:
+		radial-gradient(circle at 50% 94%, rgba(241, 136, 59, 0.38) 0%, rgba(241, 136, 59, 0.08) 34%, rgba(241, 136, 59, 0) 62%),
+		linear-gradient(180deg, rgba(8, 13, 31, 0.2) 0%, rgba(8, 13, 31, 0.65) 100%);
 }
 
 .privacy .container,
 .terms .container {
-	max-width: 640px;
-	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+	width: min(100%, 920px);
+	margin: clamp(0.6rem, 3vh, 2rem) auto;
+	border-radius: 32px;
+	padding: clamp(1rem, 2.8vw, 1.8rem);
+	background: rgba(11, 16, 37, 0.48);
+	border: 1px solid rgba(255, 210, 175, 0.2);
+	backdrop-filter: blur(24px) saturate(145%);
+	-webkit-backdrop-filter: blur(24px) saturate(145%);
+	box-shadow: 0 30px 56px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(255, 140, 53, 0.08) inset;
 }
 
 .privacy .back,
 .terms .back {
 	display: inline-block;
-	margin-bottom: 1.5rem;
-	color: rgba(255,255,255,0.9);
+	margin-bottom: 1rem;
+	color: var(--fire-300);
 	text-decoration: none;
 	font-weight: 600;
 }
+
 .privacy .back:hover,
-.terms .back:hover { text-decoration: underline; }
+.privacy .back:focus-visible,
+.terms .back:hover,
+.terms .back:focus-visible {
+	text-decoration: underline;
+	color: #ffd9b6;
+}
 
 .privacy .nav-links,
 .terms .nav-links {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1.1rem;
 }
+
 .privacy .nav-links a,
 .terms .nav-links a {
-	color: rgba(255,255,255,0.85);
+	color: var(--ink-88);
 	text-decoration: none;
-	font-size: 0.9rem;
+	font-size: 0.95rem;
 }
+
 .privacy .nav-links a:hover,
-.terms .nav-links a:hover { text-decoration: underline; }
+.privacy .nav-links a:focus-visible,
+.terms .nav-links a:hover,
+.terms .nav-links a:focus-visible {
+	color: #ffe6cc;
+	text-decoration: underline;
+}
+
 .privacy .nav-links a + a,
 .terms .nav-links a + a { margin-left: 1rem; }
 
 .privacy h1,
-.terms h1 { font-size: 1.75rem; margin-top: 0; }
+.terms h1 {
+	font-size: clamp(1.8rem, 5vw, 2.3rem);
+	margin-top: 0;
+	margin-bottom: 0.6rem;
+	text-shadow: 0 0 18px rgba(241, 136, 59, 0.2), 0 8px 18px rgba(0, 0, 0, 0.3);
+}
 
 .privacy .policy-content,
 .terms .policy-content {
-	margin-top: 1rem;
+	margin-top: 0.7rem;
+	color: var(--ink-88);
 }
+
 .privacy .policy-content strong,
 .terms .policy-content strong {
 	display: block;
 	margin-top: 1.25em;
 	margin-bottom: 0.35em;
+	color: #ffe3c5;
 }
+
 .privacy .policy-content strong:first-child,
 .terms .policy-content strong:first-child { margin-top: 0; }
+
 .privacy .policy-content p,
 .terms .policy-content p { margin: 0.6em 0; }
+
 .privacy .policy-content ul,
 .terms .policy-content ul { margin: 0.5em 0 0 1.25rem; padding: 0; }
+
 .privacy .policy-content li,
 .terms .policy-content li { margin: 0.25em 0; }
+
 .privacy .policy-content a,
 .terms .policy-content a {
-	color: rgba(255,255,255,0.9);
+	color: var(--fire-400);
 	text-decoration: underline;
 }
+
 .privacy .policy-content a:hover,
-.terms .policy-content a:hover { opacity: 0.85; }
+.privacy .policy-content a:focus-visible,
+.terms .policy-content a:hover,
+.terms .policy-content a:focus-visible {
+	color: #ffd6aa;
+}
+
 .privacy .policy-content hr,
 .terms .policy-content hr {
 	margin: 2rem 0 1rem;
 	border: none;
-	border-top: 1px solid rgba(255,255,255,0.2);
+	border-top: 1px solid rgba(255, 184, 135, 0.28);
+}
+
+@media (max-width: 680px) {
+	body.privacy,
+	body.terms {
+		padding-top: clamp(0.6rem, 2.8vh, 1.2rem);
+		padding-bottom: clamp(3.2rem, 12vh, 6rem);
+	}
+
+	.privacy .container,
+	.terms .container {
+		border-radius: 24px;
+		padding: clamp(0.85rem, 4.3vw, 1.2rem);
+	}
 }

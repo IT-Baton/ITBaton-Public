@@ -24,13 +24,10 @@ body {
 }
 
 body.home {
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	min-height: 100vh;
+	display: block;
 	position: relative;
-	padding: clamp(0.75rem, 3vw, 2rem);
+	padding: clamp(0.9rem, 3vw, 2rem) clamp(0.75rem, 3vw, 2rem) clamp(3.6rem, 12vh, 6rem);
 	overflow-x: hidden;
 }
 
@@ -58,8 +55,7 @@ body.home {
 	position: relative;
 	z-index: 2;
 	width: min(100%, 840px);
-	max-height: calc(100vh - clamp(4.5rem, 16vh, 8rem));
-	overflow: auto;
+	margin: clamp(0.6rem, 3vh, 2rem) auto;
 	border-radius: 32px;
 	padding: clamp(0.75rem, 2.6vw, 1.2rem);
 	background: rgba(11, 16, 37, 0.44);
@@ -214,18 +210,15 @@ body.home {
 
 @media (max-width: 680px) {
 	body.home {
-		align-items: center;
-		justify-content: flex-start;
-		padding-block: clamp(0.6rem, 2.8vh, 1.2rem);
+		padding-top: clamp(0.6rem, 2.8vh, 1.2rem);
+		padding-bottom: clamp(4.4rem, 15vh, 7rem);
 	}
 
 	.page-shell {
 		border-radius: 24px;
 		width: 100%;
-		max-height: calc(100vh - clamp(7rem, 26vh, 11rem));
 		margin-top: clamp(0.5rem, 2vh, 1.2rem);
-		margin-bottom: clamp(4.2rem, 15vh, 7rem);
-		overflow-y: auto;
+		margin-bottom: 0;
 	}
 
 	.stores {
@@ -243,7 +236,6 @@ body.home {
 @media (max-height: 700px) {
 	body.home { padding-block: 0.5rem; }
 	.page { gap: 0.9rem; }
-	.page-shell { max-height: calc(100vh - 4.2rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
