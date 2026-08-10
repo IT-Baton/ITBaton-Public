@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://it-baton.github.io/ITBaton-Public/sitemap.xml
+Sitemap: https://spicybaton.com/sitemap.xml
