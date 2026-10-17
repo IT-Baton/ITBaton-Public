@@ -1,0 +1,99 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background: #0d1430;
+	color: #f6f1e9;
+	font-family: "Noto Sans", sans-serif;
+}
+
+.game-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.6rem;
+	min-height: 56px;
+	padding: 0.45rem 0.7rem;
+	padding-top: calc(0.45rem + env(safe-area-inset-top));
+	background: rgba(8, 13, 31, 0.94);
+	border-bottom: 1px solid rgba(255, 180, 126, 0.28);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.game-bar-title {
+	margin: 0;
+	flex: 1 1 auto;
+	min-width: 0;
+	text-align: center;
+	font-size: 0.95rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.game-btn {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 36px;
+	padding: 0.4rem 0.85rem;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 180, 126, 0.45);
+	color: #f6f1e9;
+	background: rgba(23, 34, 72, 0.72);
+	text-decoration: none;
+	font-size: 0.86rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+.game-btn:hover,
+.game-btn:focus-visible {
+	border-color: rgba(246, 162, 77, 0.9);
+	color: #ffe6cc;
+}
+
+.game-btn:focus-visible {
+	outline: 2px solid rgba(246, 162, 77, 0.84);
+	outline-offset: 2px;
+}
+
+.game-btn-store {
+	border-color: transparent;
+	color: #1a1208;
+	background: linear-gradient(180deg, #f6a24d, #f1883b);
+}
+
+.game-btn-store:hover,
+.game-btn-store:focus-visible {
+	color: #1a1208;
+	filter: brightness(1.05);
+}
+
+.game-stage {
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: calc(64px + env(safe-area-inset-top)) 12px 12px;
+	box-sizing: border-box;
+}
+
+#unity-canvas {
+	display: block;
+	width: auto;
+	height: min(960px, calc(100vh - 76px - env(safe-area-inset-top)));
+	max-width: min(540px, 100%);
+	aspect-ratio: 9 / 16;
+	background: #231F20;
+}

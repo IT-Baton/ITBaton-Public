@@ -1,31 +1,59 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Word Atlas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Play Word Atlas Online — Free Word Puzzle</title>
+    <meta name="description" content="Play Word Atlas in your browser. Form words from letters, reveal the crossword, and take your time — there is no timer. Free word puzzle from Spicy Baton.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0d1430">
+    <link rel="canonical" href="https://spicybaton.com/game/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Play Word Atlas Online">
+    <meta property="og:description" content="Play Word Atlas in your browser. A relaxing crossword-style word puzzle with no timer.">
+    <meta property="og:url" content="https://spicybaton.com/game/">
+    <meta property="og:image" content="https://spicybaton.com/static/play/icon.webp">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/game.css">
+    <script src="../scripts/analytics.js" defer></script>
   </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=540 height=960 tabindex="-1" style="width: 540px; height: 960px; background: #231F20"></canvas>
+  <body>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111470998" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+    <header class="game-bar">
+      <a class="game-btn" href="../index.html">Back</a>
+      <h1 class="game-bar-title">Word Atlas</h1>
+      <a class="game-btn game-btn-store" href="https://play.google.com/store/apps/details?id=com.SpicyBaton.WordAtlas" target="_blank" rel="noopener noreferrer">Google Play</a>
+    </header>
+    <div class="game-stage">
+      <canvas id="unity-canvas" width="540" height="960" tabindex="-1"></canvas>
+    </div>
     <script src="Build/web.loader.js"></script>
     <script>
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+      var canvas = document.querySelector("#unity-canvas");
+      var bar = document.querySelector(".game-bar");
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
+      function fitMobileCanvas() {
+        var barHeight = bar ? bar.offsetHeight : 0;
         canvas.style.position = "fixed";
-
-        document.body.style.textAlign = "left";
-
+        canvas.style.left = "0";
+        canvas.style.right = "0";
+        canvas.style.top = barHeight + "px";
+        canvas.style.width = "100%";
+        canvas.style.height = "calc(100% - " + barHeight + "px)";
+        canvas.style.maxWidth = "none";
+        canvas.style.aspectRatio = "auto";
       }
 
-      createUnityInstance(document.querySelector("#unity-canvas"), {
+      if (isMobile) {
+        fitMobileCanvas();
+        window.addEventListener("resize", fitMobileCanvas);
+      }
+
+      createUnityInstance(canvas, {
         arguments: [],
         dataUrl: "Build/web.data.unityweb",
         frameworkUrl: "Build/web.framework.js.unityweb",
@@ -34,10 +62,7 @@
         companyName: "SpicyBaton",
         productName: "Word Atlas",
         productVersion: "1.25",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      }).then((unityInstance) => {
-      }).catch((message) => {
+      }).catch(function (message) {
         alert(message);
       });
     </script>

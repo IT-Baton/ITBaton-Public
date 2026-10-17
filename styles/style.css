@@ -89,6 +89,129 @@ body.home {
 	margin: 0;
 }
 
+.lead {
+	max-width: 38rem;
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.55;
+	color: var(--ink-80);
+}
+
+.play-now {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 0.8rem 1.7rem;
+	border-radius: 999px;
+	text-decoration: none;
+	color: #1a1208;
+	background: linear-gradient(180deg, var(--fire-400), var(--fire-500));
+	font-weight: 700;
+	font-size: 1.05rem;
+	letter-spacing: 0.04em;
+	box-shadow: 0 12px 24px rgba(241, 136, 59, 0.32);
+	transition: transform 220ms ease, filter 220ms ease;
+}
+
+.play-now:hover,
+.play-now:focus-visible {
+	transform: translateY(-2px);
+	filter: brightness(1.05);
+}
+
+.play-now:focus-visible {
+	outline: 2px solid rgba(246, 162, 77, 0.84);
+	outline-offset: 4px;
+}
+
+.seo {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+	text-align: left;
+}
+
+.seo h2 {
+	margin: 0 0 0.55rem;
+	font-size: 1.25rem;
+	letter-spacing: 0.02em;
+	text-align: center;
+}
+
+.seo h3 {
+	margin: 0 0 0.35rem;
+	font-size: 1rem;
+}
+
+.seo p,
+.seo li {
+	margin: 0;
+	color: var(--ink-80);
+	line-height: 1.55;
+	font-size: 0.98rem;
+}
+
+.seo p + p { margin-top: 0.7rem; }
+
+.seo ol {
+	margin: 0;
+	padding-left: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+}
+
+.feature-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.75rem;
+}
+
+.feature-card {
+	background: rgba(23, 34, 72, 0.5);
+	border: 1px solid rgba(255, 180, 126, 0.2);
+	border-radius: 16px;
+	padding: 0.9rem 1rem;
+}
+
+.shots {
+	display: flex;
+	gap: 0.75rem;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	padding-bottom: 0.35rem;
+}
+
+.shots figure {
+	margin: 0;
+	flex: 0 0 auto;
+	scroll-snap-align: start;
+}
+
+.shots img {
+	display: block;
+	width: 168px;
+	height: auto;
+	border-radius: 18px;
+	background: rgba(8, 13, 31, 0.4);
+}
+
+.faq details {
+	border-top: 1px solid rgba(255, 180, 126, 0.22);
+	padding: 0.7rem 0;
+}
+
+.faq details:last-child { border-bottom: 1px solid rgba(255, 180, 126, 0.22); }
+
+.faq summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.faq details p { margin-top: 0.45rem; }
+
 .stores {
 	display: flex;
 	flex-direction: row;
@@ -231,6 +354,8 @@ body.home {
 		width: 100%;
 		max-width: 100%;
 	}
+
+	.feature-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-height: 700px) {
@@ -239,5 +364,6 @@ body.home {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.store-card-link { transition: none; }
+	.store-card-link,
+	.play-now { transition: none; }
 }
