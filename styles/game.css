@@ -1,3 +1,7 @@
+:root {
+	--game-bar-height: calc(56px + env(safe-area-inset-top));
+}
+
 html, body {
 	height: 100%;
 }
@@ -15,11 +19,12 @@ body {
 	left: 0;
 	right: 0;
 	z-index: 20;
+	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 0.6rem;
-	min-height: 56px;
+	height: var(--game-bar-height);
 	padding: 0.45rem 0.7rem;
 	padding-top: calc(0.45rem + env(safe-area-inset-top));
 	background: rgba(8, 13, 31, 0.94);
@@ -80,20 +85,11 @@ body {
 	filter: brightness(1.05);
 }
 
-.game-stage {
-	min-height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: calc(64px + env(safe-area-inset-top)) 12px 12px;
-	box-sizing: border-box;
+#unity-container.unity-desktop {
+	top: calc(50% + var(--game-bar-height) / 2);
 }
 
-#unity-canvas {
-	display: block;
-	width: auto;
-	height: min(960px, calc(100vh - 76px - env(safe-area-inset-top)));
-	max-width: min(540px, 100%);
-	aspect-ratio: 9 / 16;
-	background: #231F20;
+#unity-container.unity-mobile {
+	top: var(--game-bar-height);
+	height: calc(100% - var(--game-bar-height));
 }
